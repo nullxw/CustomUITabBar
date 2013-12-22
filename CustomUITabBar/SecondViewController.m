@@ -53,7 +53,7 @@
     AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     dir++;
-    appDelegate.leveyTabBarController.animateDriect = dir % 2;
+    appDelegate.tabBarController.animateDriect = dir % 2;
     firstVC.hidesBottomBarWhenPushed = YES;
     //[appDelegate.leveyTabBarController hidesTabBar:YES animated:YES];
     [self.navigationController pushViewController:firstVC animated:YES];

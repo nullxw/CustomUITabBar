@@ -52,8 +52,12 @@ static CustomUITabBarController *customUITabBarController;
 	{
 		_viewControllers = [NSMutableArray arrayWithArray:vcs];
 		
-		_containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        NSLog(@"###############%f",[[UIScreen mainScreen] applicationFrame].size.height);
+		if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+            _containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        }
+		else{
+            _containerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+        }
 		
 		_transitionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, _containerView.frame.size.height - kTabBarHeight)];
 		_transitionView.backgroundColor =  [UIColor groupTableViewBackgroundColor];

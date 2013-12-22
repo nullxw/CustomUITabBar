@@ -14,7 +14,7 @@
 @implementation AppDelegate
 
 @synthesize window;
-@synthesize leveyTabBarController;
+@synthesize tabBarController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     FirstViewController *firstVC = [[FirstViewController alloc] init];
@@ -27,24 +27,23 @@
 	UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:secondVC];
 	nc.delegate = self;
 	NSArray *ctrlArr = [NSArray arrayWithObjects:firstVC,nc,thirdVC,fourthVC,nil];
-	//[fifthVC release];
     
-	NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:3];
-	[imgDic setObject:[UIImage imageNamed:@"001_1.png"] forKey:@"Default"];
-	[imgDic setObject:[UIImage imageNamed:@"001.png"] forKey:@"Highlighted"];
-	[imgDic setObject:[UIImage imageNamed:@"001.png"] forKey:@"Seleted"];
+    NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:3];
+	[imgDic setObject:[UIImage imageNamed:@"tabbar_1btn.png"] forKey:@"Default"];
+	[imgDic setObject:[UIImage imageNamed:@"tabbar_1btn_1.png"] forKey:@"Highlighted"];
+	[imgDic setObject:[UIImage imageNamed:@"tabbar_1btn_1.png"] forKey:@"Seleted"];
 	NSMutableDictionary *imgDic2 = [NSMutableDictionary dictionaryWithCapacity:3];
-	[imgDic2 setObject:[UIImage imageNamed:@"002_2.png"] forKey:@"Default"];
-	[imgDic2 setObject:[UIImage imageNamed:@"002.png"] forKey:@"Highlighted"];
-	[imgDic2 setObject:[UIImage imageNamed:@"002.png"] forKey:@"Seleted"];
+	[imgDic2 setObject:[UIImage imageNamed:@"tabbar_2btn.png"] forKey:@"Default"];
+	[imgDic2 setObject:[UIImage imageNamed:@"tabbar_2btn_1.png"] forKey:@"Highlighted"];
+	[imgDic2 setObject:[UIImage imageNamed:@"tabbar_2btn_1.png"] forKey:@"Seleted"];
 	NSMutableDictionary *imgDic3 = [NSMutableDictionary dictionaryWithCapacity:3];
-	[imgDic3 setObject:[UIImage imageNamed:@"003_3.png"] forKey:@"Default"];
-	[imgDic3 setObject:[UIImage imageNamed:@"003.png"] forKey:@"Highlighted"];
-	[imgDic3 setObject:[UIImage imageNamed:@"003.png"] forKey:@"Seleted"];
+	[imgDic3 setObject:[UIImage imageNamed:@"tabbar_3btn.png"] forKey:@"Default"];
+	[imgDic3 setObject:[UIImage imageNamed:@"tabbar_3btn_1.png"] forKey:@"Highlighted"];
+	[imgDic3 setObject:[UIImage imageNamed:@"tabbar_3btn_1.png"] forKey:@"Seleted"];
 	NSMutableDictionary *imgDic4 = [NSMutableDictionary dictionaryWithCapacity:3];
-	[imgDic4 setObject:[UIImage imageNamed:@"004_4.png"] forKey:@"Default"];
-	[imgDic4 setObject:[UIImage imageNamed:@"004.png"] forKey:@"Highlighted"];
-	[imgDic4 setObject:[UIImage imageNamed:@"004.png"] forKey:@"Seleted"];
+	[imgDic4 setObject:[UIImage imageNamed:@"tabbar_1btn.png"] forKey:@"Default"];
+	[imgDic4 setObject:[UIImage imageNamed:@"tabbar_1btn_1.png"] forKey:@"Highlighted"];
+	[imgDic4 setObject:[UIImage imageNamed:@"tabbar_1btn_1.png"] forKey:@"Seleted"];
     //	NSMutableDictionary *imgDic5 = [NSMutableDictionary dictionaryWithCapacity:3];
     //	[imgDic5 setObject:[UIImage imageNamed:@"1.png"] forKey:@"Default"];
     //	[imgDic5 setObject:[UIImage imageNamed:@"2.png"] forKey:@"Highlighted"];
@@ -54,13 +53,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    leveyTabBarController = [[CustomUITabBarController alloc] initWithViewControllers:ctrlArr imageArray:imgArr];
-	[leveyTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"c-2-1.png"]];
-	[leveyTabBarController setTabBarTransparent:YES];
+    tabBarController = [[CustomUITabBarController alloc] initWithViewControllers:ctrlArr imageArray:imgArr];
+	[tabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"tabbar_bg.png"]];
+	[tabBarController setTabBarTransparent:YES];
     
     self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window addSubview:leveyTabBarController.view];
-    self.window.rootViewController = leveyTabBarController;
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -74,11 +72,11 @@
     
     if (viewController.hidesBottomBarWhenPushed)
     {
-        [leveyTabBarController hidesTabBar:YES animated:YES];
+        [tabBarController hidesTabBar:YES animated:YES];
     }
     else
     {
-        [leveyTabBarController hidesTabBar:NO animated:YES];
+        [tabBarController hidesTabBar:NO animated:YES];
     }
 }
 
