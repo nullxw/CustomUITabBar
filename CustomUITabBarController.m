@@ -122,122 +122,34 @@ static CustomUITabBarController *customUITabBarController;
 
 
 
-- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated
-{
-	if (yesOrNO == YES)
-	{
-		if (self.tabBar.frame.origin.y == self.view.frame.size.height)
-		{
-			return;
-		}
-	}
-	else
-	{
-		if (self.tabBar.frame.origin.y == self.view.frame.size.height - kTabBarHeight)
-		{
-			return;
-		}
-	}
-	
-	if (animated == YES)
-	{
-		[UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDuration:0.3f];
-		if (yesOrNO == YES)
-		{
-			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-		}
-		else
-		{
-			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-		}
-		[UIView commitAnimations];
-	}
-	else
-	{
-		if (yesOrNO == YES)
-		{
-			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-		}
-		else
-		{
-			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-		}
-	}
-}
-
-
 //- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated
 //{
-//    [self hidesTabBar:yesOrNO animated:animated driect:animateDriect];
-//}
-//
-//- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated driect:(NSInteger)driect
-//{
-//    // driect: 0 -- 上下  1 -- 左右
-//
-//    NSInteger kTabBarWidth = [[UIScreen mainScreen] applicationFrame].size.width;
-//
 //	if (yesOrNO == YES)
 //	{
-//        if (driect == 0)
-//        {
-//            if (self.tabBar.frame.origin.y == self.view.frame.size.height)
-//            {
-//                return;
-//            }
-//        }
-//        else
-//        {
-//            if (self.tabBar.frame.origin.x == 0 - kTabBarWidth)
-//            {
-//                return;
-//            }
-//        }
+//		if (self.tabBar.frame.origin.y == self.view.frame.size.height)
+//		{
+//			return;
+//		}
 //	}
 //	else
 //	{
-//        if (driect == 0)
-//        {
-//            if (self.tabBar.frame.origin.y == self.view.frame.size.height - kTabBarHeight)
-//            {
-//                return;
-//            }
-//        }
-//        else
-//        {
-//            if (self.tabBar.frame.origin.x == 0)
-//            {
-//                return;
-//            }
-//        }
+//		if (self.tabBar.frame.origin.y == self.view.frame.size.height - kTabBarHeight)
+//		{
+//			return;
+//		}
 //	}
-//
+//	
 //	if (animated == YES)
 //	{
 //		[UIView beginAnimations:nil context:NULL];
 //		[UIView setAnimationDuration:0.3f];
 //		if (yesOrNO == YES)
 //		{
-//            if (driect == 0)
-//            {
-//                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
-//            else
-//            {
-//                self.tabBar.frame = CGRectMake(0 - kTabBarWidth, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
+//			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
 //		}
 //		else
 //		{
-//            if (driect == 0)
-//            {
-//                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
-//            else
-//            {
-//                self.tabBar.frame = CGRectMake(0, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
+//			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
 //		}
 //		[UIView commitAnimations];
 //	}
@@ -245,29 +157,117 @@ static CustomUITabBarController *customUITabBarController;
 //	{
 //		if (yesOrNO == YES)
 //		{
-//            if (driect == 0)
-//            {
-//                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
-//            else
-//            {
-//                self.tabBar.frame = CGRectMake(0 - kTabBarWidth, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
+//			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
 //		}
 //		else
 //		{
-//            if (driect == 0)
-//            {
-//                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
-//            else
-//            {
-//                self.tabBar.frame = CGRectMake(0, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
-//            }
+//			self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
 //		}
 //	}
 //}
-//
+
+
+- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated
+{
+    [self hidesTabBar:yesOrNO animated:animated driect:animateDriect];
+}
+
+- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated driect:(NSInteger)driect
+{
+    // driect: 0 -- 上下  1 -- 左右
+
+    NSInteger kTabBarWidth = [[UIScreen mainScreen] applicationFrame].size.width;
+
+	if (yesOrNO == YES)
+	{
+        if (driect == 0)
+        {
+            if (self.tabBar.frame.origin.y == self.view.frame.size.height)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (self.tabBar.frame.origin.x == 0 - kTabBarWidth)
+            {
+                return;
+            }
+        }
+	}
+	else
+	{
+        if (driect == 0)
+        {
+            if (self.tabBar.frame.origin.y == self.view.frame.size.height - kTabBarHeight)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (self.tabBar.frame.origin.x == 0)
+            {
+                return;
+            }
+        }
+	}
+
+	if (animated == YES)
+	{
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDuration:0.3f];
+		if (yesOrNO == YES)
+		{
+            if (driect == 0)
+            {
+                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+            else
+            {
+                self.tabBar.frame = CGRectMake(0 - kTabBarWidth, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+		}
+		else
+		{
+            if (driect == 0)
+            {
+                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+            else
+            {
+                self.tabBar.frame = CGRectMake(0, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+		}
+		[UIView commitAnimations];
+	}
+	else
+	{
+		if (yesOrNO == YES)
+		{
+            if (driect == 0)
+            {
+                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y + kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+            else
+            {
+                self.tabBar.frame = CGRectMake(0 - kTabBarWidth, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+		}
+		else
+		{
+            if (driect == 0)
+            {
+                self.tabBar.frame = CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - kTabBarHeight, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+            else
+            {
+                self.tabBar.frame = CGRectMake(0, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height);
+            }
+		}
+	}
+}
+
 - (NSUInteger)selectedIndex
 {
 	return _selectedIndex;

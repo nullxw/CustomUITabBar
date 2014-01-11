@@ -33,13 +33,17 @@
     
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	self.view.backgroundColor = [UIColor redColor];
+- (void)loadView{
+    [super loadView];
+    self.view.backgroundColor = [UIColor redColor];
 	
 	UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStyleBordered target:self action:@selector(hide)];
 	self.navigationItem.rightBarButtonItem = rightBtn;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 }
 
 

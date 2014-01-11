@@ -23,16 +23,22 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)loadView
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
+	[super loadView];
+	
     CGRect frame = [self.view bounds];
     
     UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 60, frame.size.width, frame.size.height)];
     shadowView.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:0.4f];
     [self.view addSubview:shadowView];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
