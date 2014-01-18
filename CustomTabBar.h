@@ -10,16 +10,10 @@
 @protocol CustomTabBarDelegate;
 
 @interface CustomTabBar : UIView
-{
-	UIImageView *backgroundView;
-	id<CustomTabBarDelegate> delegate;
-	NSMutableArray *buttons;
-}
 
 @property (nonatomic, retain) UIImageView *backgroundView;
 @property (nonatomic, assign) id<CustomTabBarDelegate> delegate;
 @property (nonatomic, retain) NSMutableArray *buttons;
-
 
 - (id)initWithFrame:(CGRect)frame buttonImages:(NSArray *)imageArray;
 - (void)selectTabAtIndex:(NSInteger)index;
@@ -28,6 +22,7 @@
 - (void)setBackgroundImage:(UIImage *)img;
 
 @end
+
 @protocol CustomTabBarDelegate<NSObject>
 @optional
 - (void)tabBar:(CustomTabBar *)tabBar didSelectIndex:(NSInteger)index;

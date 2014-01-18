@@ -119,9 +119,6 @@ static CustomUITabBarController *customUITabBarController;
 	}
 }
 
-
-
-
 //- (void)hidesTabBar:(BOOL)yesOrNO animated:(BOOL)animated
 //{
 //	if (yesOrNO == YES)

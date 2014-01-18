@@ -10,10 +10,6 @@
 
 @implementation CustomTabBar
 
-@synthesize backgroundView = _backgroundView;
-@synthesize delegate = _delegate;
-@synthesize buttons = _buttons;
-
 - (id)initWithFrame:(CGRect)frame buttonImages:(NSArray *)imageArray
 {
     self = [super initWithFrame:frame];
